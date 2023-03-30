@@ -20,9 +20,7 @@ const galleryMarkup = galleryItems
 
 galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
 
-galleryContainer.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const imageSource = e.target.dataset.source;
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionDelay: 250,
+  captionsData: "alt",
 });
-
