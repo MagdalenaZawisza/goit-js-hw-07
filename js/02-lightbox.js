@@ -7,20 +7,22 @@ const galleryContainer = document.querySelector(".gallery");
 
 const galleryMarkup = galleryItems
   .map((item) => {
-    return `
+    return `<li>
     <a class="gallery__item" href="${item.original}">
     <img 
     class="gallery__image" 
     src="${item.preview}" 
     alt="${item.description}" 
     />
-  </a>`;
+  </a></li>`;
   })
   .join("");
 
 galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
 
-const lightbox = new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox(".gallery li a", {
   captionDelay: 250,
   captionsData: "alt",
+  showCounter: true,
+  scrollbarWidth: 20
 });
